@@ -19,10 +19,11 @@ def welch_t(a, b):
 
 
 def welch_df(a, b):
+    
     import numpy as np
     import scipy.stats as stats
     import scipy   
-    """ Calculate the effective degrees of freedom for two samples. This function returns the degrees of freedom """
+     # Calculate the effective degrees of freedom for two samples. This function returns the degrees of freedom
     
     s1 = a.var(ddof=1) 
     s2 = b.var(ddof=1)
