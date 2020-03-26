@@ -17,6 +17,7 @@ def welch_t(a, b):
     
     return np.abs(numerator/denominator)
 
+
 def welch_df(a, b):
     import numpy as np
     import scipy.stats as stats
