@@ -10,7 +10,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['scikit-learn>=0.22.2','matplotlib>=3.2',]
+requirements = ['scikit-learn','matplotlib',]
 
 setup_requirements = [ ]
 
