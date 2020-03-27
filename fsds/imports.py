@@ -29,7 +29,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True): #append_
     ('matplotlib.pyplot',   'plt',  "Matplotlib's matlab-like plotting module"),
     ('seaborn',     'sns',  "High-level data visualization library based on matplotlib"),
     ('IPython.display','dp','Display modules with helpful display and clearing commands.')
-    ('fsds_10072019','fs','Custom data science bootcamp student package')]
+    ('fsds','fs','Custom data science bootcamp student package')]
     """
 
 
@@ -43,7 +43,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True): #append_
         ('matplotlib','mpl',"Matplotlib's base OOP module with formatting artists"),
         ('matplotlib.pyplot','plt',"Matplotlib's matlab-like plotting module"),
         ('seaborn','sns',"High-level data visualization library based on matplotlib"),
-        ('fsds_100719','fs','Custom data science bootcamp student package'),
+        ('fsds','fs','Custom data science bootcamp student package'),
         ('IPython.display','dp','Display modules with helpful display and clearing commands.')]#,
         # ('cufflinks','cf','Adds df.iplot() interactive Plotly figs. To use, run >> cf.go_offline()')]
 
