@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'fsds'
+project = 'fs_ds'
 copyright = "2020, James Irving"
 author = "James Irving"
 
@@ -150,7 +150,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'fsds',
+    (master_doc, 'fs_ds',
      'fsds Documentation',
      author,
      'fsds',
