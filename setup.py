@@ -10,7 +10,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['scikit-learn','matplotlib','fsds_100719']
+requirements = ['scikit-learn','matplotlib','fsds_100719','statsmodels']
 
 setup_requirements = [ ]
 
@@ -19,7 +19,7 @@ test_requirements = [ ]
 setup(
     author="James Irving",
     author_email='james.irving.phd@gmail.com',
-    python_requires='>=3.5',
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
