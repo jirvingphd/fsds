@@ -1,6 +1,16 @@
 """A collection of functions containing convenient links to documentation and other resources."""
 from IPython.display import Markdown, display, HTML
 
+def display_or_print(txt,get_text=False):
+    import sys
+    if 'google.colab' in sys.modules:
+        print(txt)
+    else:
+        display(Markdown(txt))
+        
+    if get_text:
+        return txt
+
 repo_links = {'python_package':('fsds_100719',
                                     'https://github.com/jirvingphd/fsds_100719'),
         'fulltime_notes':('fsds_100719_cohort_notes',
@@ -442,15 +452,16 @@ $$\displaystyle\binom{n}{k} = \dfrac{P_{k}^{n}}{k!}=\dfrac{ \dfrac{n!}{(n-k)!}}{
 
 
 
-def evaluation_metrics(markdown=True):
+def evaluation_metrics(*args,**kwargs):
     from IPython.display import Markdown,display,HTML
-    if markdown:
-        formula = r'''$$ \text{Precision} = \frac{\text{Number of True Positives}}{\text{Number of Predicted Positives}} $$    
+    
+    formula = r'''$$ \text{Precision} = \frac{\text{Number of True Positives}}{\text{Number of Predicted Positives}} $$    
         $$ \text{Recall} = \frac{\text{Number of True Positives}}{\text{Number of Actual Total Positives}} $$  
 $$ \text{Accuracy} = \frac{\text{Number of True Positives + True Negatives}}{\text{Total Observations}} $$
 
 $$ \text{F1 score} = 2 * \frac{\text{Precision * Recall}}{\text{Precision + Recall}} $$'''        
-        display(Markdown(formula))
+    display_or_print(formula)
+    # display(Markdown(formula))
 
 
 def statistical_power(return_url = False):
