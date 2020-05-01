@@ -33,7 +33,7 @@ def load_superhero_info(verbose=False,read_csv_kwds={}):
     return  read_csv_from_url(url, verbose=verbose,read_csv_kwds=read_csv_kwds)
     
 
-def load_hero_powers(verbose=False,read_csv_kwds={}):
+def load_superhero_powers(verbose=False,read_csv_kwds={}):
     url = "https://raw.githubusercontent.com/learn-co-students/dsc-data-cleaning-project-online-ds-ft-100719/master/super_hero_powers.csv"
     return  read_csv_from_url(url, verbose=verbose,read_csv_kwds=read_csv_kwds)
 
