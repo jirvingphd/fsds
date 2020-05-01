@@ -10,11 +10,19 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['scikit-learn','matplotlib','fsds_100719','statsmodels']
+# requirements = ['scikit-learn','matplotlib','fsds_100719','statsmodels']
 
-setup_requirements = [ ]
+# setup_requirements = [ ]
 
-test_requirements = [ ]
+# test_requirements = [ ]
+requirements = ['numpy>=1.18','missingno', 'pandas', 'seaborn', 'matplotlib', 'scikit-learn>=0.22.1', 
+'scipy','IPython','ipywidgets','pprint','tzlocal','pyperclip','pandas_profiling',
+'wordcloud','selenium','fake_useragent','lxml','cufflinks'] 
+#'pytz','tzlocal','gensim','openpyxl','beautifulsoup4',
+setup_requirements = [ 'IPython','missingno']
+
+test_requirements = ['IPython' ,'ipywidgets','statsmodels']
+test_requirements.extend(requirements)
 
 setup(
     author="James Irving",
