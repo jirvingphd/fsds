@@ -15,11 +15,11 @@ with open('HISTORY.rst') as history_file:
 # setup_requirements = [ ]
 
 # test_requirements = [ ]
-requirements = ['numpy>=1.18','missingno', 'pandas', 'seaborn', 'matplotlib', 'scikit-learn>=0.22.1', 
+requirements = ['numpy>=1.18','missingno', 'pandas', 'seaborn', 'matplotlib>=3.1.1', 'scikit-learn>=0.23.1', 
 'scipy','IPython','ipywidgets','pprint','tzlocal','pyperclip','pandas_profiling',
-'wordcloud','selenium','fake_useragent','lxml','cufflinks'] 
+'wordcloud','cufflinks'] 
 #'pytz','tzlocal','gensim','openpyxl','beautifulsoup4',
-setup_requirements = [ 'IPython','missingno']
+setup_requirements = [ 'IPython','missingno',*requirements]
 
 test_requirements = ['IPython' ,'ipywidgets','statsmodels']
 test_requirements.extend(requirements)
