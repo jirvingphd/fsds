@@ -17,7 +17,7 @@ with open('HISTORY.rst') as history_file:
 # test_requirements = [ ]
 requirements = ['numpy>=1.18','missingno', 'pandas>1.0.0', 'seaborn', 'matplotlib>=3.2.0', 'scikit-learn>=0.23.1', 
 'scipy','IPython','ipywidgets','pprint','tzlocal','pyperclip','pandas_profiling',
-'wordcloud','cufflinks'] 
+'wordcloud','cufflinks','tensorflow>=2.0.0'] 
 #'pytz','tzlocal','gensim','openpyxl','beautifulsoup4',
 setup_requirements = [ 'IPython','missingno',*requirements]
 
