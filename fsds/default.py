@@ -362,7 +362,7 @@ def add_dir_to_path(abs_path=None,rel_path=None,verbose=True):
 
 
 
-def ihelp(function_or_mod, show_help=True, show_code=True,return_code=False,markdown=True,file_location=False):
+def ihelp(function_or_mod, show_help=False, show_code=True,return_code=False,markdown=True,file_location=False):
     """Call on any module or functon to display the object's
     help command printout AND/OR soruce code displayed as Markdown
     using Python-syntax"""
