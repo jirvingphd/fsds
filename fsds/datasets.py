@@ -77,12 +77,19 @@ def load_boston(verbose=False):
     # load targets]
     df_features['price'] =data_dict['target']
     
+    ## Dropping Blacks column
+    df_features.drop('B',axis=1,inplace=True)
+    descr = data_dict['DESCR'].split('\n')
+    descr = [line for line in descr if "- B" not in line ]
+    
     # set output df
     df = df_features
     if verbose:
-        print(data_dict['DESCR'])
+        print("\n".join(descr))
     
     return df 
+
+
 
 def load_iris(verbose=False):
     from sklearn import datasets
