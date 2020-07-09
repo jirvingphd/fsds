@@ -15,7 +15,7 @@ with open('HISTORY.rst') as history_file:
 # setup_requirements = [ ]
 
 # test_requirements = [ ]
-requirements = ['numpy>=1.18','missingno', 'pandas>1.0.0', 'seaborn>0.10.0', 'matplotlib>=3.2.2', 'scikit-learn>=0.23.1', 
+requirements = ['numpy>=1.18','missingno', 'pandas>=1.0.0', 'seaborn>0.10.0', 'matplotlib>=3.2.2', 'scikit-learn>=0.23.1', 
 'scipy','IPython','ipywidgets','pprint','tzlocal','pyperclip','cufflinks>=0.17.0']#'tensorflow>2.1.0','keras'] 
 #'pytz','tzlocal','gensim','openpyxl','beautifulsoup4',
 setup_requirements = [ 'IPython','missingno',*requirements]
