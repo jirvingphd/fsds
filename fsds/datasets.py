@@ -115,7 +115,7 @@ def load_iris(verbose=False):
     return df
 
 
-def load_ames_train(verbose=False,read_csv_kwds={}):
+def load_ames_train(verbose=False,subset=False, read_csv_kwds={}):
     """Loads height vs weight dataset"""
     import requests 
     if verbose:
@@ -123,7 +123,14 @@ def load_ames_train(verbose=False,read_csv_kwds={}):
         info = res.text
         print(info)
     url='https://raw.githubusercontent.com/learn-co-students/dsc-project-eda-with-pandas-onl01-dtsc-pt-041320/master/ames_train.csv'
-    return  read_csv_from_url(url, verbose=verbose,read_csv_kwds=read_csv_kwds)
+    
+    df  = read_csv_from_url(url, verbose=verbose,read_csv_kwds=read_csv_kwds)
+    
+    if subset:
+        subset = ['YrSold', 'MoSold', 'Fireplaces', 'TotRmsAbvGrd', 'GrLivArea',
+          'FullBath', 'YearRemodAdd', 'YearBuilt', 'OverallCond', 'OverallQual', 'LotArea', 'SalePrice']
+        df = df[subset]
+    return  df
 
 
 def load_ames_test(verbose=False,read_csv_kwds={}):
