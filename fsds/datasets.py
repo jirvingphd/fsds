@@ -298,3 +298,11 @@ def load_tennis(read_csv_kwds={}):
     return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
 
 
+
+def load_nlp_finding_trump(read_csv_kwds={}):
+    url='https://raw.githubusercontent.com/jirvingphd/online-ds-pt-1007109-text-classification-finding-trump/master/finding-trump.csv'
+    return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
+
+def load_nlp_trump_tweets(read_csv_kwds={}):
+    url='https://raw.githubusercontent.com/jirvingphd/capstone-project-using-trumps-tweets-to-predict-stock-market/master/data/trump_tweets_12012016_to_01012020.csv'
+    return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
