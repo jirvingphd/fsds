@@ -26,7 +26,7 @@ test_requirements = ['IPython' ,'ipywidgets','statsmodels',*requirements]
 setup(
     author="James Irving",
     author_email='james.irving.phd@gmail.com',
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -34,7 +34,7 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         # 'Programming Language :: Python :: 3.6',
-        # 'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
     description="Cohort agnostic version of fsds_100719 package",
