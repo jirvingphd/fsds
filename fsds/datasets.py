@@ -306,3 +306,19 @@ def load_nlp_finding_trump(read_csv_kwds={}):
 def load_nlp_trump_tweets(read_csv_kwds={}):
     url='https://raw.githubusercontent.com/jirvingphd/capstone-project-using-trumps-tweets-to-predict-stock-market/master/data/trump_tweets_12012016_to_01012020.csv'
     return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
+
+
+
+####### NEW 08-31-2021 ###
+
+def load_pokemon(read_csv_kwds={"index_col":0}):
+    url="https://raw.githubusercontent.com/jirvingphd/fsds/master/datafiles/pokemon/pokemon_alopez247.csv"
+    return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
+
+def load_hotel_bookings(read_csv_kwds={"encoding":'latin-1'}):
+    url='https://raw.githubusercontent.com/jirvingphd/fsds/master/datafiles/hotel_bookings.csv.gz'
+    return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
+
+def load_videogame_sales(read_csv_kwds={}):
+    url="https://raw.githubusercontent.com/jirvingphd/fsds/master/datafiles/vgsales.csv"
+    return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
