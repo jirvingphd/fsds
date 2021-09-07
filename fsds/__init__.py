@@ -6,7 +6,7 @@ __version__ = '0.3.6'
 
 from .default import *
 
-from fsds import datasets,jmi,quick_refs
+from fsds import datasets,jmi,quick_refs,pandemic
 
 
 # from fsds_100719 import datasets
