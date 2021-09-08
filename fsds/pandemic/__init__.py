@@ -14,6 +14,8 @@ def upload_kaggle_json(target_folder="/root/.kaggle/"):
 
     Raises:
         Exception: If kaggle.json filename not found in uploaded files. 
+        
+    See this colab notebook for WIP alternatives https://colab.research.google.com/drive/16gL4yExqHQ3jfMHT1ccKhtn_L_H5V2r0?usp=sharing
     """
     from google.colab import files
     import requests,os,json
@@ -51,4 +53,5 @@ def upload_kaggle_json(target_folder="/root/.kaggle/"):
         os.system("pip install kaggle")
         import kaggle
 
-        print('Kaggle API loaded succesffully!')
+    print('[i] Kaggle package/API setup complete. You can now "import kaggle".')
+    
