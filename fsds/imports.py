@@ -39,12 +39,12 @@ def import_packages(import_list_of_tuples = None,  display_table=True): #append_
     # if using default import list, create it:
     if (import_list_of_tuples is None): #or (append_to_default_list is True):
         import_list = [('pandas','pd','High performance data structures and tools'),
-        ('numpy','np','scientific computing with Python'),
-        ('matplotlib','mpl',"Matplotlib's base OOP module with formatting artists"),
-        ('matplotlib.pyplot','plt',"Matplotlib's matlab-like plotting module"),
-        ('seaborn','sns',"High-level data visualization library based on matplotlib"),
-        ('fsds','fs','Custom data science bootcamp student package'),
-        ('IPython.display','dp','Display modules with helpful display and clearing commands.')]#,
+                       ('fsds','fs','Custom data science bootcamp student package'),
+                       ('numpy','np','scientific computing with Python'),
+                       ('matplotlib','mpl',"Matplotlib's base OOP module with formatting artists"),
+                       ('matplotlib.pyplot','plt',"Matplotlib's matlab-like plotting module"),
+                       ('seaborn','sns',"High-level data visualization library based on matplotlib"),
+                       ('IPython.display','dp','Display modules with helpful display and clearing commands.')]#,
         # ('cufflinks','cf','Adds df.iplot() interactive Plotly figs. To use, run >> cf.go_offline()')]
 
     # if using own list, rename to 'import_list'
@@ -75,7 +75,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True): #append_
         df_imported=pd.concat([df_imported['Handle'],df_imported[['Package','Description']]],axis=1)
         dfs = df_imported.sort_values('Package').style.hide_index().set_caption('Loaded Packages and Handles')
         import fsds as fs
-        print(f"fsds v{fs.__version__} loaded.  Read the docs: https://fs-ds.readthedocs.io/en/latest/ ")
+        # print(f"fsds v{fs.__version__} loaded.  Read the docs: https://fs-ds.readthedocs.io/en/latest/ ")
         display(dfs)
 
     # or just print statement
