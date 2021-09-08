@@ -85,11 +85,15 @@ def import_packages(import_list_of_tuples = None,  display_table=True,
     if check_versions:
         pkg_vers_df = check_package_versions(packages=check_packages)
         
+        ## Adding Imported column to track non-imported versions
+        df_imports['Imported'] = 'Y'
         df_imports = pd.merge(df_imports, pkg_vers_df,on='Package',how='outer')
-        df_imports = df_imports[['Package','Handle','Documentation','Version']]
+        
+        df_imports = df_imports[['Package','Handle','Version','Documentation','Imported',]]
         # df_imports.insert(1,'',' as ')
-        df_imports = df_imports.rename({'Package':'import','Handle':'as'},axis=1)
-        df_imports.fillna(' - ',inplace=True)
+        # df_imports = df_imports.rename({'Package':'import','Handle':'as'},axis=1)
+        df_imports['Imported'].fillna('N', inplace=True)
+        df_imports.fillna('',inplace=True)
     
     
         
@@ -148,7 +152,7 @@ def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','
             try:
                 vers = global_imports(package,None,check_vers=True)
             except:
-                vers = '[!]'
+                vers = '!'
             version_list.append([package,vers])
             
     pkg_vers_df = pd.DataFrame(version_list[1:],columns=version_list[0])
