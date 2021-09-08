@@ -115,7 +115,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True, check_ver
 
 
 
-def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','sklearn'] ):
+def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','sklearn','fsds'] ):
     """SEEE TESTING NOTEBOOK"""
     import pandas as pd
     version_list = [['Package','Version']]
