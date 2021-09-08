@@ -101,7 +101,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True, check_ver
         # df_imports = df_imported[['Handle','Package','Description']]
         #.sort_values('Package').
         import fsds as fs
-        # print(f"fsds v{fs.__version__} loaded.")#  Read the docs: https://fs-ds.readthedocs.io/en/latest/ ")
+        print(f"fsds v{fs.__version__} loaded.")#  Read the docs: https://fs-ds.readthedocs.io/en/latest/ ")
         dfs = df_imports.style.hide_index().set_caption('Loaded Packages and Handles')
         display(dfs)
         
