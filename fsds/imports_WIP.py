@@ -81,7 +81,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True, check_ver
         
         df_imports = pd.merge(df_imports, pkg_vers_df,on='Package',how='outer')
         df_imports = df_imports[['Handle','Package','Version','Description']]
-        df_imports.fillna('N/A',inplace=True)
+        df_imports.fillna(' - ',inplace=True)
     
     
         
