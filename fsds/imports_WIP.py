@@ -42,12 +42,12 @@ def import_packages(import_list_of_tuples = None,  display_table=True, check_ver
     import pandas as pd
     # if using default import list, create it:
     if (import_list_of_tuples is None): #or (append_to_default_list is True):
-        import_list = [('pandas','pd','High performance data structures and tools'),
-                       ('fsds','fs','Custom data science bootcamp student package'),
-                       ('numpy','np','scientific computing with Python'),
-                       ('matplotlib','mpl',"Matplotlib's base OOP module with formatting artists"),
-                       ('matplotlib.pyplot','plt',"Matplotlib's matlab-like plotting module"),
-                       ('seaborn','sns',"High-level data visualization library based on matplotlib"),
+        import_list = [('pandas','pd','High performance data structures and tools'), #"https://pandas.pydata.org/docs/"
+                       ('fsds','fs','Custom data science bootcamp student package'), # 
+                       ('numpy','np','scientific computing with Python'), #"https://numpy.org/doc/stable/reference/"
+                       ('matplotlib','mpl',"Matplotlib's base OOP module with formatting artists"), #https://matplotlib.org/stable/api/index.html
+                       ('matplotlib.pyplot','plt',"Matplotlib's matlab-like plotting module"), #https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot
+                       ('seaborn','sns',"High-level data visualization library based on matplotlib"), #https://seaborn.pydata.org/api.html
                        ('IPython.display','dp','Display modules with helpful display and clearing commands.')]#,
         # ('cufflinks','cf','Adds df.iplot() interactive Plotly figs. To use, run >> cf.go_offline()')]
 
