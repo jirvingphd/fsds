@@ -52,6 +52,14 @@ fsds.imports module
    :undoc-members:
    :show-inheritance:
 
+fsds.imports\_legacy module
+---------------------------
+
+.. automodule:: fsds.imports_legacy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 fsds.quick\_refs module
 -----------------------
 
