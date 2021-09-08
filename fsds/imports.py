@@ -83,7 +83,8 @@ def import_packages(import_list_of_tuples = None,  display_table=True,
     
     ## make dataframe of versions
     if check_versions:
-        pkg_vers_df = check_package_versions(packages=check_packages)
+        pkg_vers_df = check_package_versions(packages=check_packages,
+                                             show_only=False,fpath=False)
         
         ## Adding Imported column to track non-imported versions
         df_imports['Imported'] = 'Y'
@@ -142,9 +143,11 @@ def clickable(path,label=None):
 
 
 
-def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','sklearn','fsds'] ):
+def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','sklearn','fsds'],
+                           fpath=False, show_only=True):
     """Imports packages and saves the name and version number to a dataframe"""
     import pandas as pd
+    import inspect
     version_list = [['Package','Version']]
     
     for package in packages:
@@ -156,7 +159,22 @@ def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','
             version_list.append([package,vers])
             
     pkg_vers_df = pd.DataFrame(version_list[1:],columns=version_list[0])
-    return pkg_vers_df
+    
+    if fpath:
+        pkg_vers_df['File'] = pkg_vers_df['Package'].map(lambda x: inspect.getsourcefile(globals()[x]))
+        # for package in packages:
+    
+    if show_only==True: 
+        if fpath==True:   
+            dfs = pkg_vers_df.style.set_properties(subset='File',
+                                                **{'width':"300px"})
+        else:
+            dfs = pkg_vers_df
+        display(dfs.style.set_caption('Package Versions'))
+    
+        
+    else:
+        return pkg_vers_df
 
 
 
