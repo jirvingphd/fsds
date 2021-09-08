@@ -205,6 +205,9 @@ def FULL_WORKFLOW(save_state_csvs=False,fpath_raw = r"./data_raw/",
         if 'google' in sys.modules:
             from fsds.pandemic import upload_kaggle_json
             upload_kaggle_json()
+            
+            os.system(f'kaggle datasets download -p "{fpath_raw}" -d antgoldbloom/covid19-data-from-john-hopkins-university')
+            jhu_data_zip = zipfile.ZipFile(os.path.join(fpath_raw,'covid19-data-from-john-hopkins-university.zip'))
 
 
     ## Getting State Abbrevs
