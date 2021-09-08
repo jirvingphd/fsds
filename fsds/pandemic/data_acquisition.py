@@ -184,6 +184,7 @@ def FULL_WORKFLOW(save_state_csvs=False,fpath_raw = r"./data_raw/",
         df_states (Frame): combined dataframe of all state data 
         STATES (dict): dict of individual state data
     """
+    import sys
     
     start = dt.datetime.now()
     
@@ -195,9 +196,15 @@ def FULL_WORKFLOW(save_state_csvs=False,fpath_raw = r"./data_raw/",
     [os.makedirs(fpath,exist_ok=True) for fpath in [fpath_clean,fpath_raw,fpath_reference]];
 
     print("[i] Retrieving kaggle dataset: antgoldbloom/covid19-data-from-john-hopkins-university")
-    ## Download kaggle jhu data and make zipfile object
-    os.system(f'kaggle datasets download -p "{fpath_raw}" -d antgoldbloom/covid19-data-from-john-hopkins-university')
-    jhu_data_zip = zipfile.ZipFile(os.path.join(fpath_raw,'covid19-data-from-john-hopkins-university.zip'))
+    
+    try:
+        ## Download kaggle jhu data and make zipfile object
+        os.system(f'kaggle datasets download -p "{fpath_raw}" -d antgoldbloom/covid19-data-from-john-hopkins-university')
+        jhu_data_zip = zipfile.ZipFile(os.path.join(fpath_raw,'covid19-data-from-john-hopkins-university.zip'))
+    except:
+        if 'google' in sys.modules:
+            from fsds.pandemic import upload_kaggle_json
+            upload_kaggle_json()
 
 
     ## Getting State Abbrevs
