@@ -132,7 +132,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True,
         
 
 def clickable(path,label=None):
-    """Source: https://www.geeksforgeeks.org/how-to-create-a-table-with-clickable-hyperlink-to-a-local-file-in-pandas/"""
+    """Adapted from: https://www.geeksforgeeks.org/how-to-create-a-table-with-clickable-hyperlink-to-a-local-file-in-pandas/"""
     # returns the final component of a url
     # f_url = os.path.basename(path)
     if label is None:
@@ -170,7 +170,7 @@ def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','
                                                 **{'width':"300px"})
         else:
             dfs = pkg_vers_df
-        display(dfs.style.set_caption('Package Versions'))
+        display(dfs.set_caption('Package Versions'))
     
         
     else:
