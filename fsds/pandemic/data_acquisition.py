@@ -201,14 +201,15 @@ def FULL_WORKFLOW(save_state_csvs=False,fpath_raw = r"./data_raw/",
         ## Download kaggle jhu data and make zipfile object
         os.system(f'kaggle datasets download -p "{fpath_raw}" -d antgoldbloom/covid19-data-from-john-hopkins-university')
         jhu_data_zip = zipfile.ZipFile(os.path.join(fpath_raw,'covid19-data-from-john-hopkins-university.zip'))
-    except:
+    except Exception as e:
         if 'google' in sys.modules:
             from fsds.pandemic import upload_kaggle_json
             upload_kaggle_json()
             
             os.system(f'kaggle datasets download -p "{fpath_raw}" -d antgoldbloom/covid19-data-from-john-hopkins-university')
             jhu_data_zip = zipfile.ZipFile(os.path.join(fpath_raw,'covid19-data-from-john-hopkins-university.zip'))
-
+        else:
+            raise Exception('Could not retrieve kaggle dataset. Check your ~/.kaggle/kaggle.json file')
 
     ## Getting State Abbrevs
     state_abbrevs = pd.read_csv("https://raw.githubusercontent.com/jirvingphd/predicting-the-pandemic/main/reference_data/united_states_abbreviations.csv")#os.path.join(fpath_reference,'united_states_abbreviations.csv'))
