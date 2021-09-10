@@ -96,8 +96,7 @@ def import_packages(import_list_of_tuples = None,  display_table=True,
         df_imports['Imported'].fillna('N', inplace=True)
         df_imports.fillna('',inplace=True)
     
-    
-        
+
         # display(pkg_vers_df.style.hide_index().set_caption('Package Version Report')) 
 
     # Display summary dataframe
@@ -120,10 +119,17 @@ def import_packages(import_list_of_tuples = None,  display_table=True,
             pass
         dfs = df_imports.style.hide_index().set_caption('Loaded Packages & Info')
         
+        ## Determine if links will have display text
         if link_text is None:
-            display(dfs.format({'Documentation':clickable}))
+            kwargs = {'Documentation':clickable}
+
         else:
-            display(dfs.format({'Documentation':lambda x:  clickable(x,link_text)}))
+            kwargs = {'Documentation':lambda x:  clickable(x,link_text)}
+
+        ## apply kwargs above and set additional properties
+        display(dfs.format(kwargs).set_properties(**{'text-align':'left'}).\
+                                set_properties(subset=['Imported','Handle'],**{'text-align':'center'}) )
+            # display(dfs.format({'Documentation':lambda x:  clickable(x,link_text)}))
         # return df_imports
 
     # or just print statement
@@ -150,26 +156,30 @@ def check_package_versions(packages = ['matplotlib','seaborn','pandas','numpy','
     import inspect
     version_list = [['Package','Version']]
     
+    ## Remove submodules from version check (wont have version #)
     for package in packages:
         if '.' not in package:
             try:
+                ## use global imports and retrieve version #
                 vers = global_imports(package,None,check_vers=True)
             except:
                 vers = '!'
             version_list.append([package,vers])
-            
+
+    # Convert to df
     pkg_vers_df = pd.DataFrame(version_list[1:],columns=version_list[0])
     
-    if fpath:
+    ## If get_fpath
+    if fpath==True:
         pkg_vers_df['File'] = pkg_vers_df['Package'].map(lambda x: inspect.getsourcefile(globals()[x]))
         # for package in packages:
     
     if show_only==True: 
         if fpath==True:   
             dfs = pkg_vers_df.style.set_properties(subset='File',
-                                                **{'width':"300px"})
+                                                **{'width':"600px","text-align":'center'})
         else:
-            dfs = pkg_vers_df
+            dfs = pkg_vers_df.style
         display(dfs.set_caption('Package Versions'))
     
         
