@@ -1753,3 +1753,34 @@ def capture_text(txt):
 #         if verbose: 
 #             print(f'[i] Clock Time: {self.end.strftime(self.fmt)}')
 #             print(f'  - Elapsed Time: {self.elapsed}')
+
+
+
+
+
+# os.listdir(my_drive)
+
+def get_filepath_info(folder="./",search_q= "*",return_df=False):
+    import os,glob
+    import pandas as pd
+    all_filepaths = glob.glob(folder+search_q)
+    file_info = []
+    for one_fpath in all_filepaths:
+        d = {'Path':one_fpath.replace(folder,''),
+            'Folder':os.path.isdir(one_fpath),
+            "Link":os.path.islink(one_fpath),
+            "File":os.path.isfile(one_fpath)}
+
+        file_info.append(d)
+
+    file_df = pd.DataFrame(file_info).sort_values(['Folder','Link','Path'],ascending=False)
+    file_df = file_df.reset_index(drop=True)
+    
+    ## indent fgilenames
+    file_df.loc[ file_df['Folder']==True,'Path'] = file_df['Path'].map(lambda x: f"🗂 {x}")
+    file_df.loc[ file_df['Link']==True,'Path'] = file_df['Path'].map(lambda x: f"🔗 {x}")
+    display(file_df.style.hide_index().set_table_styles({'Path':{'text-align':'left',
+                                                    'margin-left':'2px'}}))
+    
+    if return_df:
+        return file_df
