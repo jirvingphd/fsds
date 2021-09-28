@@ -327,3 +327,19 @@ def load_hotel_bookings(read_csv_kwds={"encoding":'latin-1'}):
 def load_videogame_sales(read_csv_kwds={}):
     url="https://raw.githubusercontent.com/jirvingphd/fsds/master/datafiles/vgsales.csv"
     return read_csv_from_url(url,verbose=False, read_csv_kwds=read_csv_kwds)
+
+
+
+
+
+def load_king_county_housing(verbose=False,project_vers=True, read_csv_kwds={}):
+    if project_vers==True:
+        if verbose:
+            print('[i] Loading the project-version of the dataset.')
+        url = "https://github.com/jirvingphd/fsds/raw/master/datafiles/king-county-housing-project-version.csv.gz"
+    else:
+        if verbose:
+            print('[i] Loading the kaggle-version of the dataset.')
+        url = "https://github.com/jirvingphd/fsds/raw/master/datafiles/king-county-housing-kaggle-version.csv.gz"
+    return  read_csv_from_url(url, verbose=verbose,read_csv_kwds=read_csv_kwds)
+        
