@@ -37,7 +37,7 @@ def load_superhero_powers(verbose=False,read_csv_kwds={}):
     url = "https://raw.githubusercontent.com/learn-co-students/dsc-data-cleaning-project-online-ds-ft-100719/master/super_hero_powers.csv"
     return  read_csv_from_url(url, verbose=verbose,read_csv_kwds=read_csv_kwds)
 
-def load_titanic(verbose=False,kaggle=True,read_csv_kwds={}):
+def load_titanic(verbose=False,kaggle=False,read_csv_kwds={}):
     if kaggle:
         url="https://raw.githubusercontent.com/jirvingphd/fsds/master/datafiles/titanic.csv.gz"
         if verbose:
