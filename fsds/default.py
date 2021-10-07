@@ -1761,6 +1761,16 @@ def capture_text(txt):
 # os.listdir(my_drive)
 
 def get_filepath_info(folder="./",search_q= "*",return_df=False):
+    """Shows or returns a dataframe with all of the folder and files in folder + search_q (for glob)
+
+    Args:
+        folder (str, optional): Base folder to use. Defaults to "./".
+        search_q (str, optional): Query to append to folder for glob. Defaults to "*".
+        return_df (bool, optional): [description]. Defaults to False.
+
+    Returns:
+        DataFrame: File Names, Type, returned
+    """
     import os,glob
     import pandas as pd
     all_filepaths = glob.glob(folder+search_q)
@@ -1779,8 +1789,10 @@ def get_filepath_info(folder="./",search_q= "*",return_df=False):
     ## indent fgilenames
     file_df.loc[ file_df['Folder']==True,'Path'] = file_df['Path'].map(lambda x: f"🗂 {x}")
     file_df.loc[ file_df['Link']==True,'Path'] = file_df['Path'].map(lambda x: f"🔗 {x}")
-    display(file_df.style.hide_index().set_table_styles({'Path':{'text-align':'left',
-                                                    'margin-left':'2px'}}))
     
     if return_df:
-        return file_df
+        return file_df    
+    else:
+        display(file_df.style.hide_index().set_table_styles({'Path':{'text-align':'left',
+                                                        'margin-left':'2px'}}))
+        
