@@ -1760,7 +1760,8 @@ def capture_text(txt):
 
 # os.listdir(my_drive)
 
-def get_filepath_info(folder="./",search_q= "*",return_df=False):
+def get_filepath_info(folder="./",search_q= "*",return_df=False, 
+    check_links = False, abs_fpaths=False,emojis=True):
     """Shows or returns a dataframe with all of the folder and files in folder + search_q (for glob)
 
     Args:
@@ -1773,23 +1774,54 @@ def get_filepath_info(folder="./",search_q= "*",return_df=False):
     """
     import os,glob
     import pandas as pd
+
     all_filepaths = glob.glob(folder+search_q)
+
+
     file_info = []
+
     for one_fpath in all_filepaths:
-        d = {'Path':one_fpath.replace(folder,''),
+
+        d = {
             'Folder':os.path.isdir(one_fpath),
-            "Link":os.path.islink(one_fpath),
-            "File":os.path.isfile(one_fpath)}
+            'Path':one_fpath.replace(folder,''),
+            # "Link":os.path.islink(one_fpath),
+            # "File":os.path.isfile(one_fpath)
+            }
+
+        if check_links==True:
+            d["Link"] = os.path.islink(one_fpath)
 
         file_info.append(d)
 
-    file_df = pd.DataFrame(file_info).sort_values(['Folder','Link','Path'],ascending=False)
+    
+    ## make a df
+    file_df = pd.DataFrame(file_info)
+
+
+
+    ## Abs paths
+    if abs_fpaths:
+        file_df['Abs Path'] = file_df['Path'].map(lambda x: os.path.abspath(x))
+
+    
+    if emojis:
+        ## indent filenames
+        file_df.loc[ file_df['Folder']==True,'Path'] = file_df['Path'].map(lambda x: f"🗂 {x}")
+    
+
+    #add columns as appropriate
+    sort_cols = ["Folder",'Path']
+    if check_links==True:
+        sort_cols.insert(1,"Link")
+        if emojis: 
+            file_df.loc[ file_df['Link']==True,'Path'] = file_df['Path'].map(lambda x: f"🔗 {x}")
+
+    file_df = file_df.sort_values(sort_cols,ascending=False)
     file_df = file_df.reset_index(drop=True)
-    
-    ## indent fgilenames
-    file_df.loc[ file_df['Folder']==True,'Path'] = file_df['Path'].map(lambda x: f"🗂 {x}")
-    file_df.loc[ file_df['Link']==True,'Path'] = file_df['Path'].map(lambda x: f"🔗 {x}")
-    
+
+
+
     if return_df:
         return file_df    
     else:
