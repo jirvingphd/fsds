@@ -2,7 +2,7 @@
 
 __author__ = """James Irving"""
 __email__ = 'james.irving.phd@gmail.com'
-__version__ = '0.4.12'
+__version__ = '0.4.13'
 
 from .default import *
 
