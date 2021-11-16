@@ -4,6 +4,8 @@
     - `python3 -m pip install --upgrade pip`
     - `python3 -m pip install --upgrade build`
     - `python3 -m pip install --upgrade twine`
+    
+    
 - Deployment workflow:
     1. generate docs with `python docs/conf.py` (optional)
     2. Commit all changes.
